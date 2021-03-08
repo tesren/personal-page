@@ -15,7 +15,7 @@
 
     <body>
 
-        <div class="container-fluid">
+        <div class="container-fluid" id="contenedor-todo">
 
             <!--Navbar-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -23,7 +23,7 @@
                 <div class="container-fluid">
                     <a class="navbar-brand" href="/#">
                         <!-- Logo -->
-                        <!--img src="#" alt="logo" width="55" height="auto"-->
+                        <img src="/images/logo.png" alt="logo" width="90" height="auto">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@
                                 <a class="nav-link"  href="/#">WORK</a>
                             </li>
                             <li class="nav-item px-3">
-                                <a class="nav-link" href="/#">ABOUT</a>
+                                <a class="nav-link" href="/#about">ABOUT</a>
                             </li>
                             <li class="nav-item pe-2">
                                 <a class="nav-link" href="/#">CONTACT</a>
@@ -93,7 +93,7 @@
                 <img src="/images/erick.jpg" class="img-thumbnail" id="mifoto" >
             </div>
 
-            <!--Intro-->
+            <!--todo-->
             <div class="container-fluid bg-white text-center" id="texto-inicial"> 
                 <h1 class="mt-5 pt-5 fw-bold">Erick Pérez</h1>
                 <h2>Web & app Developer</h2>
@@ -111,9 +111,9 @@
                         </div>
                     </div>
 
-                    <h1 class="fw-bold mt-5">ABOUT</h1>
-                    <hr>
+                    <!--Rapido, responsivo, intuitivo, dinamico-->
                     <div class="row justify-content-center">
+                        <h1 class="fw-bold pt-5 pb-3">Mis prioridades en un sitio web:</h1>
                         <div class="col-sm-3">
                             <i class="bi bi-speedometer2"></i>
                             <h3>Rápido</h3>
@@ -135,16 +135,86 @@
                             <p class="fs-5">Los sitios web no tienen que ser estáticos, me encanta hacer que las páginas cobren vida.</p>
                         </div>
                     </div>
+
+                    <!--certificaciones-->
+                    <div class="container-fluid">
+                        <h1 class="fw-bold mt-5">Certificaciones</h1>
+                            <div class="row justify-content-center">
+                                
+                                <div class="col-md-3">
+                                    <div class="card" style="width:100%;">
+                                        <img src="/images/php.png" class="card-img-top" alt="php">
+                                        <div class="card-body">
+                                          <h5 class="card-title">Php certification</h5>
+                                          <a href="https://drive.google.com/file/d/1RcTjAaZdGueZb_OV54dKkn88TfPqgnyC/view?usp=sharing" class="btn btn-1">Ver credencial</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="card" style="width:100%;">
+                                        <img src="/images/css.png" class="card-img-top" alt="php">
+                                        <div class="card-body">
+                                          <h5 class="card-title">CSS certification</h5>
+                                          <a href="https://drive.google.com/file/d/1GXfEh6bmXLVV5tunv4WEr155gU4KfaVg/view?usp=sharing" class="btn btn-1">Ver credencial</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="card" style="width:100%;">
+                                        <img src="/images/android.png" class="card-img-top" alt="php">
+                                        <div class="card-body">
+                                          <h5 class="card-title">Android development certification</h5>
+                                          <a href="https://drive.google.com/file/d/1m2nBDDUybo3IBYKWOL17_1kD-a2taqqI/view?usp=sharing" class="btn btn-1">Ver credencial</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+
+                    <!--footer-->
+                    <div class="container-fluid " id="footer">
+         
+                        <div class="row justify-content-center">  
+
+                            <div class="col-2 col-sm-1 py-5">
+                                <a id="social" href="https://www.facebook.com/erickalejandro117/"><span>Facebook</span><i id="icons" class="bi bi-facebook"></i></a>
+                            </div>
+                            <div class="col-2 col-sm-1 py-5">
+                                <a id="social" href="https://wa.me/523221084847?text=Hola%20me%20gustaría%20iniciar%20un%20de%20proyecto"><span>Whatsapp</span><i id="icons" class="bi bi-whatsapp"></i></a>
+                            </div>
+                            <div class="col-2 col-sm-1 py-5">
+                                <a id="social" href="https://www.linkedin.com/in/erick-perez117/"><span>LinkedIn</span><i id="icons" class="bi bi-linkedin"></i></a>
+                            </div>
+                            <div class="col-2 col-sm-1 py-5">
+                                <a id="social" href="https://github.com/tesren"><span>Github</span><i id="icons" class="bi bi-github"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="container-fluid text-center mb-3">
+                            <p>Copyrigth 2021 &copy;Erick Alejandro Pérez Macedo. Todos los derechos reservados.</p>
+                        </div>
+                    </div>
             </div>
 
-            <!--about-->
-            <div class="container-fluid text-center bg-white">
-                <h1>ABOUT</h1>
-                <hr>
-            </div>
+           
+
+            <!--Boton de Whatsapp-->
+            <a href="https://wa.me/523221084847?text=Hola%20me%20gustaría%20iniciar%20un%20de%20proyecto" id="whatsapp" target="_blank"> 
+                <i class="bi bi-whatsapp"></i>
+            </a>
+
+            
+          
 
         </div>
+        
 
+        <!--JQuery-->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <!--JS de Bootstrap-->
         <script src="bootstrap-5.0/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="anime-master/lib/anime.min.js" type="text/javascript"></script>
         <script src="/js/animation.js" type="text/javascript"></script>
