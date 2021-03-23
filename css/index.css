@@ -261,9 +261,8 @@ body{
   }
 
   #foto-hexa{
-    height: 300px;
     width: 300px;
-    
+    height: auto;
   }
 
   #boton-about{
@@ -417,6 +416,7 @@ body{
     -moz-transition: all .5s;
     transition: all .5s;
   }
+
   
   @media (max-width: 768px){
     

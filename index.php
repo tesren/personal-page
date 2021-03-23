@@ -1,3 +1,37 @@
+<?php
+
+    $message_sent = false;
+
+    if(isset($_POST['correo']) && $_POST['correo'] != ''){
+
+        if(filter_var($_POST['correo'], FILTER_VALIDATE_EMAIL)){
+           
+            $nombre = $_POST['nombre'];
+            $correo = $_POST['correo'];
+            $telefono=$_POST['telefono'];
+            $presupuesto = $_POST['presupuesto'];
+            $descripcion = $_POST['descripcion'];
+
+            $to = 'erickalejandropm117@gmail.com';
+            $subject = "Correo de erickperezdev.com";
+            $body = "";
+
+            $body .= "De: ".$nombre."\r\n";
+            $body .= "Correo: ".$correo."\r\n";
+            $body .= "Teléfono: ".$telefono."\r\n";
+            $body .= "Presupuesto: ".$presupuesto."\r\n";
+            $body .= "Descripción: ".$descripcion."\r\n";
+
+            mail($to, $subject, $body);
+
+            $message_sent = true;
+        }
+    }
+
+   
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +40,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Erick Pérez</title>
-        <link rel="icon" type="image/png" href="/images/favicon.png">
+        <link rel="icon" href="/images/favicon.png">
+        <link rel="icon" href="/images/favicon32x32.png">
         <!--Bootstrap-->
         <link rel="stylesheet" href="/bootstrap-5.0/css/bootstrap.min.css">
         <link rel= "stylesheet" href="/css/index.css">
@@ -27,7 +62,7 @@
                         <!-- Logo -->
                         <img src="/images/logo.png" alt="logo" width="90" height="auto">
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse py-1" id="navbarNav">
@@ -119,14 +154,14 @@
             <div class="container-fluid bg-white text-center" id="texto-inicial"> 
                 <h1 class="mt-5 pt-5 fw-bold">Erick Pérez</h1>
                 <h2>Web & app Developer</h2>
-                <p class="fs-5 px-5">Creo páginas web y aplicaciones móviles desde cero, a partir de las ideas de mis clientes y 
+                <p class="fs-5 px-3">Creo páginas web y aplicaciones móviles desde cero, a partir de las ideas de mis clientes y 
                     me apasiona crear un software excelente que mejore la vida de quienes me rodean. 
                     ¿Qué haría usted si tuviera un experto en software disponible a su alcance?
                 </p>
                     <!--BOTONES-->
                     <div class="row justify-content-center">
                         <div class="col-5 col-sm-2">
-                            <a class="btn btn-1" href="#">Descargar CV</a>
+                            <a class="btn btn-1" href="https://drive.google.com/file/d/1ZkoNy_F26vW7aVvgIH4WnLN2SojgFRg7/view?usp=sharing">Currículum</a>
                         </div>
                         <div class="col-5 col-sm-2">
                             <a class="btn btn-2" href="#form-contacto">Contacto</a>
@@ -136,7 +171,7 @@
                     <!--skills-->
                     <div class="container-fluid text-center" id="skills">
                         
-                        <div class="row px-5 pb-2">
+                        <div class="row px-2 pb-2">
 
                             <div class="col-md-6">
                                 <h2 class="fw-bold pt-4">Web skills</h2>
@@ -252,10 +287,10 @@
 
                     <!--about-->
                     <div class="container-fluid text-center " id="about">
-                        <div class="row px-5">
+                        <div class="row px-3">
                             
                             <div class="col-md-4 pt-5 pb-3">
-                                <img src="/images/erick.jpg" class="img-thumbnail" id="foto-hexa">
+                                <img src="/images/erick.jpg" class="img-fluid img-thumbnail" id="foto-hexa">
                             </div>
                             <div class="col-md-8 pt-4 pb-3 text-start">
                                 <h1 class="py-2 text-start">Un poco mas sobre mi</h1>
@@ -269,7 +304,7 @@
 
                         </div>
 
-                        <div class="row px-5 justify-content-center" id="work">
+                        <div class="row px-3 justify-content-center" id="work">
 
                             <div class="col-md-6 text-start">
                                 <h1 class="py-2">Trabajo reciente</h1>
@@ -416,14 +451,25 @@
                     <!--contacto-->
                     <div class="container-fluid" id="form-contacto">
                         <h1 class="fw-bold pt-5">Contacto</h1>
-                        <div class="row px-5">
+                        <div class="row px-3">
                             <div class="col-sm-6 order-sm-1 mt-3">
                                 <img src="/images/foto-contacto.jpg" class="img-fluid">
                             </div>
 
                             <div class="col-sm-6 order-sm-12">
-                                <!--formulario-->
-                                <form class="pt-3 pb-5 text-start">
+
+                                <?php
+                                    if($message_sent):
+                                ?>
+
+                                <h2 class="my-2 text-center">¡Gracias! Me comunicaré contigo lo mas pronto posible</h2>
+
+                                <?php
+                                else:
+                                ?>
+                                
+                            <!--formulario-->
+                                <form action="index.php#form-contacto" class="pt-3 pb-5 text-start" method="POST">
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
                                         <label for="floatingInput">Nombre</label>
@@ -455,10 +501,12 @@
                                     </div>
 
                                     <p>Al presionar "Enviar" estoy de acuerdo con el <a class="link-light" href="/aviso.html">Aviso de privacidad.</a></p>
-                                    <button type="submit" class="btn btn-2">Enviar</button>
+                                    <button type="submit" class="btn btn-2" >Enviar</button>
 
                                 </form>
-
+                                <?php
+                                endif;
+                                 ?>
                             </div>
                             
                         </div>
